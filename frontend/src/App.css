@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body, #root{
+    height: 100%;
+  }
+  body{
+    background: gainsboro;
+  }
+  
+  body, input, button{
+    font-family: 'Times New Roman', Times, serif;
+    
+  }
