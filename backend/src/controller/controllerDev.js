@@ -15,7 +15,7 @@ module.exports = {
         return resposta.json(users);
     },
     async store(requisicao, resposta) {
-        const { username } = "evicsouza"
+        const { username } = requisicao.body;
         const userExist = await Dev.findOne({ user: username });
         if (userExist) {
             return resposta.json(userExist)
