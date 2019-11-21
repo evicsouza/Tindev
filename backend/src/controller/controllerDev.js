@@ -21,9 +21,9 @@ module.exports = {
             return resposta.json(userExist)
         }
 
-        const resp = await axios.get("https://api.github.com/users/evicsouza")
+        // const resp = await axios.get("https://api.github.com/users/evicsouza")
         //MDQ6VXNlcjIyNDIxNDgx meu id
-        // const resp = await axios.get(`https://api.github.com/users/ ${username}`);
+        const resp = await axios.get(`https://api.github.com/users/ ${username}`);
         const { name, bio } = resp.data;
         const dev = await Dev.create({
             name,
