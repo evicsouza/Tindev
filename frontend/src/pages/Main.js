@@ -17,7 +17,7 @@ export default function Main({ match }) {
 
     loadUsers();
   }, [match.params.id]);
- 
+
 
   async function handleLike(id) {
     await api.post(`/devs/${id}/likes`, null, {
@@ -34,9 +34,9 @@ export default function Main({ match }) {
     setUsers(users.filter(user => user._id !== id));
   }
 
+  //listar todos os usuarios
   return (
     <div className="main-container">
-      <h1>teste</h1>
       {users.length > 0 ? (
         <ul>
           {users.map(user => (
@@ -57,7 +57,7 @@ export default function Main({ match }) {
           ))}
         </ul>
       ) : (
-          <div className="empty">Acabou </div>
+          <div className="empty"> Acabou </div>
         )}
     </div>
   )

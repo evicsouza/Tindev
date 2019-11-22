@@ -3,6 +3,7 @@ import './Login.css';
 import api from '../services/api';
 
 export default function Login({ history }) {
+
   const [username, setUsername] = useState('');
 
   async function handleSubmit(e) {
@@ -22,7 +23,7 @@ export default function Login({ history }) {
           placeholder="Digite seu username do Github"
           value={username}
           onChange={e => setUsername(e.target.value)}
-        />       
+        />
         <button type="submit">Enviar</button>
       </form>
     </div>
