@@ -11,21 +11,13 @@ export default function Main({ match }) {
           user: match.params.id,
         }
       })
-
+      console.log()
       setUsers(response.data);
     }
 
     loadUsers();
   }, [match.params.id]);
-  useEffect(() => {
-    const socket = io('http://localhost:3333', {
-      query: { user: match.params.id }
-    });
-
-    socket.on('match', dev => {
-      setMatchDev(dev);
-    })
-  }, [match.params.id]);
+ 
 
   async function handleLike(id) {
     await api.post(`/devs/${id}/likes`, null, {
@@ -34,7 +26,6 @@ export default function Main({ match }) {
 
     setUsers(users.filter(user => user._id !== id));
   }
-
   async function handleDislike(id) {
     await api.post(`/devs/${id}/dislikes`, null, {
       headers: { user: match.params.id },
@@ -45,7 +36,7 @@ export default function Main({ match }) {
 
   return (
     <div className="main-container">
-
+      <h1>teste</h1>
       {users.length > 0 ? (
         <ul>
           {users.map(user => (

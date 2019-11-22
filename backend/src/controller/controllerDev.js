@@ -15,8 +15,6 @@ module.exports = {
         return resposta.json(users);
     },
 
-    // const resp = await axios.get("https://api.github.com/users/evicsouza")
-    //MDQ6VXNlcjIyNDIxNDgx meu id
     async store(requisicao, resposta) {
         const { username } = requisicao.body;
         const userExists = await Dev.findOne({ user: username });
@@ -30,6 +28,6 @@ module.exports = {
             user: username,
             bio,
         })
-        return res.json(dev);
+        return resposta.json(dev);
     }
 };

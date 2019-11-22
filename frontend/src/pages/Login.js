@@ -4,12 +4,13 @@ import api from '../services/api';
 
 export default function Login({ history }) {
   const [username, setUsername] = useState('');
+
   async function handleSubmit(e) {
     e.preventDefault();
     const response = await api.post('/devs', {
       username,
     });
-
+    console.log(response.data._id);
     const { _id } = response.data;
     history.push(`/devs/${_id}`);
   }
