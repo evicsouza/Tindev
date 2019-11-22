@@ -14,22 +14,22 @@ module.exports = {
         });
         return resposta.json(users);
     },
+
+    // const resp = await axios.get("https://api.github.com/users/evicsouza")
+    //MDQ6VXNlcjIyNDIxNDgx meu id
     async store(requisicao, resposta) {
         const { username } = requisicao.body;
-        const userExist = await Dev.findOne({ user: username });
-        if (userExist) {
-            return resposta.json(userExist)
+        const userExists = await Dev.findOne({ user: username });
+        if (userExists) {
+            return resposta.json(userExists);
         }
-
-        // const resp = await axios.get("https://api.github.com/users/evicsouza")
-        //MDQ6VXNlcjIyNDIxNDgx meu id
-        const resp = await axios.get(`https://api.github.com/users/ ${username}`);
-        const { name, bio } = resp.data;
+        const response = await axios.get(`https://api.github.com/users/${username}`);
+        const { name, bio } = response.data;
         const dev = await Dev.create({
             name,
-            user, username,
-            bio
+            user: username,
+            bio,
         })
-        return resposta.json(dev);
+        return res.json(dev);
     }
 };
